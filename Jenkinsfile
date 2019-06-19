@@ -1,9 +1,12 @@
 pipeline {
-    agent { dockerfile true }
+    agent { 
+        dockerfile true 
+        args '-p 3000:3000'
+        }
     stages {
         stage('Deploy') {
             steps {
-                sh 'npm start'
+                sh 'npm start &'
             }
         }
     }
