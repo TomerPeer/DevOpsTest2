@@ -22,7 +22,7 @@ pipeline {
 
             agent { 
                 docker {
-                        image dockerImage
+                        image "fleeing/counternodeapp:test"
                         args "-p 3001:3000 --name test"
                     }
                 }
