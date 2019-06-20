@@ -43,7 +43,6 @@ pipeline {
 
          stage('Deploy') {
             steps {
-                input message: 'is the container still up?'
                 sh './scripts/deploy.sh'
             }
         }
@@ -53,7 +52,5 @@ pipeline {
                 sh "docker rmi $registry:latest"
             }
         }
-
-
     }
 }
