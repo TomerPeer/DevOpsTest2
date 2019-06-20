@@ -2,7 +2,7 @@ pipeline {
 
     environment {
         registry = "fleeing/counternodeapp"
-        registryCredential = ‘dockerhub’
+        registryCredential = 'dockerhub'
         dockerImage = ''
     }
 
