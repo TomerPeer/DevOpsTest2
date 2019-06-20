@@ -14,7 +14,7 @@ pipeline {
             agent { 
                 dockerfile {
                         args "-p 3001:3000 --name test"
-                        additionalBuildArgs = "-t fleeing/counternodeapptest"
+                        additionalBuildArgs "-t fleeing/counternodeapptest"
                     }
                 }
 
@@ -50,7 +50,8 @@ pipeline {
 
         stage('cleanup') {
             steps{
-                sh "echo done yay motherfucker"
+                sh './scripts/cleanup.sh'
+                sh 'echo done yay motherfucker'
             }
         }
     }
