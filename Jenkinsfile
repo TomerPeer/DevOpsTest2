@@ -13,7 +13,7 @@ pipeline {
 
             agent { 
                 dockerfile {
-                        args "-p 3000:3000"
+                        args "-p 3000:3000 --name test"
                     }
                 }
 
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage('Building image') {
+        stage('Building Image') {
             steps{
                 script {
                     dockerImage = docker.build registry + ":latest"
@@ -38,6 +38,13 @@ pipeline {
                         dockerImage.push()
                     }
                 }
+            }
+        }
+
+         stage('Deploy') {
+            steps {
+                input message: 'is the container still up?'
+                sh './scripts/deploy.sh'
             }
         }
 
