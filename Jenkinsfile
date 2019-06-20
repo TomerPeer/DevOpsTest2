@@ -10,7 +10,7 @@ pipeline {
 
     stages {
 
-        stage('Building Image') {
+        stage('Building Test Image') {
             steps{
                 script {
                     dockerImage = docker.build registry + ":test"
@@ -30,6 +30,14 @@ pipeline {
             steps {
                 sh 'npm start &'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
+            }
+        }
+
+        stage('Building Prod Image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":latest"
+                }
             }
         }
 
