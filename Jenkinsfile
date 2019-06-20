@@ -13,7 +13,7 @@ pipeline {
 
             agent { 
                 dockerfile {
-                        args "-p 3000:3000 --name test"
+                        args "-p 3001:3000 --name test"
                     }
                 }
 
@@ -49,7 +49,7 @@ pipeline {
 
         stage('cleanup') {
             steps{
-                sh "docker rmi $registry:latest"
+                sh "echo done yay motherfucker"
             }
         }
     }
