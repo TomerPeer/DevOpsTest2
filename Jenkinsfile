@@ -26,12 +26,12 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":latest"
                 }
             }
         }
 
-        stage('Deploy Image') {
+        stage('Deploy Image to Docker Hub') {
             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
@@ -41,10 +41,12 @@ pipeline {
             }
         }
 
-        stage('Remove Unused docker image') {
+        stage('cleanup') {
             steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry:latest"
             }
         }
+
+
     }
 }
