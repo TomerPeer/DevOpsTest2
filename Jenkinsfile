@@ -8,11 +8,21 @@ pipeline {
 
     agent any
 
-    stages {        
+    stages {
+
+        stage('Building Image') {
+            steps{
+                script {
+                    dockerImage = docker.build registry + ":test"
+                }
+            }
+        }
+
         stage('Test') {
 
             agent { 
-                dockerfile {
+                docker {
+                        image dockerImage
                         args "-p 3001:3000 --name test"
                     }
                 }
@@ -20,14 +30,6 @@ pipeline {
             steps {
                 sh 'npm start &'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-            }
-        }
-
-        stage('Building Image') {
-            steps{
-                script {
-                    dockerImage = docker.build registry + ":latest"
-                }
             }
         }
 
