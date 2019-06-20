@@ -14,7 +14,6 @@ pipeline {
             agent { 
                 dockerfile {
                         args "-p 3001:3000 --name test"
-                        additionalBuildArgs "--label test"
                     }
                 }
 
