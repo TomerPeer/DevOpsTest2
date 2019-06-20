@@ -14,7 +14,7 @@ pipeline {
             agent { 
                 dockerfile {
                         args "-p 3001:3000 --name test"
-                        additionalBuildArgs "-t fleeing/counternodeapptest"
+                        label "countertest"
                     }
                 }
 
