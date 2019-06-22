@@ -13,7 +13,7 @@ pipeline {
         stage('Building Test Image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":test"
+                    docker.build registry + ":test"
                 }
             }
         }
@@ -30,6 +30,12 @@ pipeline {
             steps {
                 sh 'npm start &'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
+            }
+        }
+
+        stage('Fucking Elishas mom') {
+            steps{
+                sh 'echo Line is too long'
             }
         }
 
