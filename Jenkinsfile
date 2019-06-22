@@ -35,7 +35,7 @@ pipeline {
 
         stage('Fucking Elishas mom') {
             steps{
-                sh 'echo Line is too long'
+                sh './scripts/lol'
             }
         }
 
