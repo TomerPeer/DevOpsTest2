@@ -35,7 +35,7 @@ pipeline {
 
         stage('Fucking Elishas mom') {
             steps{
-                sh './scripts/lol'
+                sh './scripts/lol.sh'
             }
         }
 
