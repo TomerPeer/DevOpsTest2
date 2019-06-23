@@ -20,7 +20,8 @@ pipeline {
 
         stage('Test') {
 
-            agent { 
+            agent {
+                label 'nodejnlp' 
                 docker {
                         image "fleeing/counternodeapp:test"
                         args "-p 3001:3000 --name test"
