@@ -34,11 +34,6 @@ pipeline {
             }
         }
 
-        stage('Fucking Elishas mom') {
-            steps{
-                sh './scripts/lol.sh'
-            }
-        }
 
         stage('Building Prod Image') {
             steps{
