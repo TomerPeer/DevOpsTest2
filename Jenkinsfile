@@ -34,20 +34,22 @@ pipeline {
             }
         }
 
-        parallel{
-            stage('Fucking Elishas mom') {
-                steps{
-                    sh './scripts/lol.sh'
+        stage('Trolling Elisha'){
+            parallel {
+                stage('Fucking Elishas mom') {
+                    steps{
+                        sh './scripts/lol.sh'
+                    }
                 }
-            }
-            stage('Fucking Elishas mom Again') {
-                steps{
-                    sh './scripts/lol.sh'
+                stage('Fucking Elishas mom Again') {
+                    steps{
+                        sh './scripts/lol.sh'
+                    }
                 }
-            }
-            stage('Fucking Elishas mom For the third time') {
-                steps{
-                    sh './scripts/lol.sh'
+                stage('Fucking Elishas mom For the third time') {
+                    steps{
+                        sh './scripts/lol.sh'
+                    }
                 }
             }
         }
