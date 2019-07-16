@@ -1,0 +1,28 @@
+---
+- hosts: deploy
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Install pip
+      apt: name=python-pip state=present
+  
+    - name: install docker-py
+      pip: name=docker-py
+
+    - name: Stopping the container
+      docker_container:
+        image: fleeing/counternodeapp:latest
+        name: yay
+        state: absent
+
+    - name: Removing the image
+      docker_image:
+        name: fleeing/counternodeapp:latest
+        state: absent
+
+    - name: Running the container
+      docker_container:
+        image: fleeing/counternodeapp:latest
+        name: yay
+        published_ports: 3000:3000
+        state: started
