@@ -11,7 +11,7 @@ http.createServer( function(request, response) {
         break;
     case('GET'):  
         response.writeHead(200, { 'Content-Type':'text/plain' } );
-        response.write('Sap Bro\n');
+        response.write('hi yuvi\n');
         response.write('We have had '+postRequests+' POST requests');
         break;
     default:
