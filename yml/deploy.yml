@@ -12,17 +12,18 @@
     - name: Stopping the container
       docker_container:
         image: fleeing/counternodeapp:latest
-        name: yay
+        name: prod
         state: absent
 
     - name: Removing the image
       docker_image:
-        name: fleeing/counternodeapp:latest
+        name: fleeing/counternodeapp
+        tag: latest
         state: absent
 
     - name: Running the container
       docker_container:
         image: fleeing/counternodeapp:latest
-        name: yay
+        name: prod
         published_ports: 3000:3000
         state: started
