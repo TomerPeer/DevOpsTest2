@@ -73,11 +73,11 @@ pipeline {
         }
 
         stage('Ansible Test') {
+
+            agent { label 'ansible' }
+
             steps {
-                    ansiblePlaybook(playbook: 'yml/ping.yml', 
-                    inventory:'inventories/hosts.ini', 
-                    credentialsId:'jkdk',
-                    colorized: true) { } 
+                    sh 'ansible-playbook -i /inventories/hosts.ini -u jkdk yml/ping.yml'
             }
         }
 
