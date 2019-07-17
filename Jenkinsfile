@@ -72,6 +72,15 @@ pipeline {
             }
         }
 
+        stage('Ansible Test'){
+            steps {
+                ansiblePlaybook('yml/ping.yml') {
+                    inventoryPath('inventories/hosts.ini')
+                    credentialsId('credsid')
+                }
+            }
+        }
+
          stage('Deploy') {
             steps {
                 sh './scripts/deploy.sh'
