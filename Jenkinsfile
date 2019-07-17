@@ -75,7 +75,7 @@ pipeline {
         stage('Ansible Test') {
             steps {
                     ansiblePlaybook(playbook: 'yml/ping.yml', 
-                    inventoryPath:'inventories/hosts.ini', 
+                    inventory:'inventories/hosts.ini', 
                     credentialsId:'jkdk',
                     colorized: true) { } 
             }
