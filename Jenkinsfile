@@ -72,12 +72,12 @@ pipeline {
             }
         }
 
-        stage('Ansible Test'){
+        stage('Ansible Test') {
             steps {
-                ansiblePlaybook('yml/ping.yml') {
-                    inventoryPath('inventories/hosts.ini')
-                    credentialsId('credsid')
-                }
+                    ansiblePlaybook(playbook: 'yml/ping.yml', 
+                    inventoryPath:'inventories/hosts.ini', 
+                    credentialsId:'jkdk',
+                    colorized: true) { } 
             }
         }
 
