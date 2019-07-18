@@ -82,8 +82,11 @@ pipeline {
         }
 
          stage('Deploy') {
+
+            agent { label 'ansible' }
+            
             steps {
-                sh './scripts/deploy.sh'
+                sh 'ansible-playbook -i ./inventories/hosts.ini -u jkdk ./yml/deploy.yml'
             }
         }
 
