@@ -4,10 +4,10 @@
   become_method: sudo
   tasks:
     - name: deploy base image
-      command: sh kubectl set image deployments/counterapp counterapp=fleeing/counternodeapp:base
+      shell: kubectl set image deployments/counterapp counterapp=fleeing/counternodeapp:base
     - name: wait 1
-      command: sh sleep 20
+      shell: sleep 20
     - name: deploy base image
-      command: sh kubectl set image deployments/counterapp counterapp=fleeing/counternodeapp:latest
+      shell: kubectl set image deployments/counterapp counterapp=fleeing/counternodeapp:latest
     - name: wait 2
-      command: sh sleep 20
+      shell: sleep 20
