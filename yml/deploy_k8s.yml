@@ -3,5 +3,5 @@
   become: yes
   become_method: sudo
   tasks:
-    - name: Ping to Host
-      ping:
+    name: deploy
+    command: sh ../k8s_scripts/deploy.sh

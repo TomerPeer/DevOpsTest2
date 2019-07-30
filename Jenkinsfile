@@ -77,7 +77,7 @@ pipeline {
             agent { label 'ansible' }
 
             steps {
-                    sh 'ansible-playbook -i ./inventories/hosts.ini -u jkdk ./yml/ping.yml'
+                    sh 'ansible-playbook -i ./inventories/hosts.ini -u kub ./yml/ping.yml'
             }
         }
 
@@ -86,7 +86,7 @@ pipeline {
             agent { label 'ansible' }
             
             steps {
-                sh 'ansible-playbook -i ./inventories/hosts.ini -u jkdk ./yml/deploy.yml'
+                sh 'ansible-playbook -i ./inventories/hosts.ini -u kub ./yml/deploy_k8s.yml'
             }
         }
 
