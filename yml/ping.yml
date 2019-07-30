@@ -1,5 +1,5 @@
 ---
-- hosts: k8s_master
+- hosts: deploy
   become: yes
   become_method: sudo
   tasks:
