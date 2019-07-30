@@ -34,19 +34,19 @@ pipeline {
             }
         }
 
-        stage('Trolling Elisha'){
+        stage('Paralell Runs'){
             parallel {
-                stage('Fucking Elishas mom') {
+                stage('Run1') {
                     steps{
                         sh './scripts/lol.sh'
                     }
                 }
-                stage('Fucking Elishas mom Again') {
+                stage('Run2') {
                     steps{
                         sh './scripts/lol.sh'
                     }
                 }
-                stage('Fucking Elishas mom For the third time') {
+                stage('Run3') {
                     steps{
                         sh './scripts/lol.sh'
                     }
@@ -81,7 +81,7 @@ pipeline {
             }
         }
 
-         stage('Deploy') {
+         stage('Ansible Deploy') {
 
             agent { label 'ansible' }
             
@@ -93,7 +93,7 @@ pipeline {
         stage('cleanup') {
             steps{
                 sh './scripts/cleanup.sh'
-                sh 'echo done yay motherfucker'
+                sh 'echo done yay'
             }
         }
     }
