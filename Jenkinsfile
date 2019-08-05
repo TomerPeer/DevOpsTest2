@@ -90,6 +90,15 @@ pipeline {
             }
         }
 
+        stage('Kubertenes Deploy') {
+
+            agent { label 'kub' }
+
+            steps {
+                    sh './scripts/kubdeploy.sh'
+            }
+        }
+
         stage('cleanup') {
             steps{
                 sh './scripts/cleanup.sh'
